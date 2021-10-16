@@ -1,4 +1,4 @@
-html, body, div, span, applet, object, iframe,
+/*html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -19,7 +19,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+/*article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -37,7 +37,7 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
+}*/
 /*______________BODY__________*/
 *{ 
 	margin: 0;
@@ -59,19 +59,21 @@ table {
 	   display: -ms-flex;
 	   display: -o-flex;
 	   display: flex;
+	   flex-direction:column;
+
 	   justify-content: center;
 	   -ms-align-items: center;
 	   align-items: center;
    } 
-   .slider{ /*контейнер для всего контента*/
+   .slider{ /*контейнер для слайдеров*/
 	position: relative;
 	overflow: hidden;
 	max-width: 94%; 
-	height: auto;
+	height: 80%;
    }
-   .slider-items{
+   .slider-items{ 
 	   width: 500%;
-	   height: 80%;
+	   height: 100%;
 	   display: -webkit-flex;
 	   display: -moz-flex;
 	   display: -ms-flex;
@@ -85,3 +87,58 @@ table {
 	   max-width: 100%;
 	   height: auto;
    }
+   .slider-items input{
+	   position: absolute; /*возможно ли удалить?*/
+	   visibility: hidden;
+   }
+   .sl-nav-text{/*контейнер для текста и новигаци*/
+	position: relative;
+	overflow: hidden;
+	width: 94%; 
+	height: 15%;
+	margin-top: 1%;
+	display: flex;
+	justify-content: space-between;
+   }
+   .sl-text{
+	position: relative;
+   }
+   p{
+	   font-size: 1.5em;
+	   color: ivory;
+   }
+   .sl-nav{
+		position: relative;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+   }
+   .sl-nav .slider-nav-item{
+		height: 1.5em;
+		width: 1.5em;
+		background-color: rgb(65, 65, 251);
+		border-radius: 50%;
+		margin: 0.2em;
+		cursor: pointer;
+		-webkit-transition: all .5s ease;
+		-o-transition: all .5s ease;
+		transition: all .5s ease;
+   }
+   .sl-nav .slider-nav-item:hover{
+		background-color: rgb(17, 17, 17);
+		border: solid 3px rgb(65, 65, 251);
+   }
+   #Netflix1:checked ~ .Netflix1{
+	   margin-left: 0;
+   }
+   #Book2:checked ~ .Netflix1{
+		margin-left: -25%;
+	}
+	#Chocolate3:checked ~ .Netflix1{
+		margin-left: -50%;
+	}
+	#Queen4:checked ~ .Netflix1{
+		margin-left: -75%;
+	}
