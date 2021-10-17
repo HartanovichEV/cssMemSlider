@@ -81,7 +81,11 @@ table {
 	   display: flex;
    }
    .slider-items .item{
-	   width: 20%;
+	   width: 25%;
+	   align-self: center; /*?????выравнивает тольео по вертикали*/
+	   -webkit-transition: .7s;
+	   -o-transition: .7s;
+	   transition: .7s;
    }
    .slider-items .item img{
 	   max-width: 100%;
@@ -127,18 +131,21 @@ table {
 		transition: all .5s ease;
    }
    .sl-nav .slider-nav-item:hover{
-		background-color: rgb(17, 17, 17);
-		border: solid 3px rgb(65, 65, 251);
-   }
-   #Netflix1:checked ~ .Netflix1{
+		background-color: ivory;
+	}
+   .active, .slider-nav-item:checked{
+	background-color: rgb(17, 17, 17);
+	/*border: solid 3px rgb(65, 65, 251);*/
+	}
+   #s1:checked ~ .s1{
 	   margin-left: 0;
    }
-   #Book2:checked ~ .Netflix1{
+   #s2:checked ~ .s1{
 		margin-left: -25%;
 	}
-	#Chocolate3:checked ~ .Netflix1{
+	#s3:checked ~ .s1{
 		margin-left: -50%;
 	}
-	#Queen4:checked ~ .Netflix1{
+	#s4:checked ~ .s1{
 		margin-left: -75%;
 	}
