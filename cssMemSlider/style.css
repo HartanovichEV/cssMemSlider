@@ -1,108 +1,142 @@
 *{ 
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-   }
-   body {
-	   position: relative;
-	   background-color: rgb(17, 17, 17);
-   }
-   .wrapper{
-	   position: relative;
-	   width: 100%;
-	   height: 100vh;
-	   display: -webkit-flex;
-	   display: -moz-flex;
-	   display: -ms-flex;
-	   display: -o-flex;
-	   display: flex;
-	   flex-direction:column;
-
-	   justify-content: center;
-	   -ms-align-items: center;
-	   align-items: center;
-   } 
-   .slider{ /*контейнер для слайдеров*/
+margin: 0;
+padding: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body {
 	position: relative;
+	background-color: rgb(17, 17, 17);
 	overflow: hidden;
-	max-width: 94%; 
-	height: 80%;
-   }
-   .slider-items{ 
-	   width: 500%;
-	   height: 100%;
-	   display: -webkit-flex;
-	   display: -moz-flex;
-	   display: -ms-flex;
-	   display: -o-flex;
-	   display: flex;
-   }
-   .slider-items .item{
-	   width: 25%;
-	   align-self: center; /*?????выравнивает тольео по вертикали*/
-	   -webkit-transition: .7s;
-	   -o-transition: .7s;
-	   transition: .7s;
-   }
-   .slider-items .item img{
-	   max-width: 100%;
-	   height: auto;
-   }
-   .slider-items input{
-	   display: none; 
-	   visibility: hidden;
-   }
-   .sl-nav-text{/*контейнер для текста и новигаци*/
-	position: relative;
+}
+.wrapper{
+	max-width: 90vw;
+	height: 100vh;
+	margin: 5vh auto;
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	row-gap:  5vh;
+} 
+input{
+	display: none; 
+	visibility: hidden;
+}
+.img{
+	grid-column: 1 / 17;
+	grid-row: 1 / 4;
 	overflow: hidden;
-	width: 94%; 
-	height: 15%;
-	margin-top: 1%;
+}
+.text{
+	grid-column: 1 / 9;
+	height: 1.5em;
+	overflow: hidden;
+}
+.first-label {
+	grid-column: 13 / 14;
+}
+.img-wrapper{
+	width: 500%;
 	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap-reverse;
-	}
-   .sl-text{
+}
+.item{
+	width: 25%;
+	transition: .7s;
+}
+.item img{
+	width: 95vw;	
+}
+.headtext{
+	font-size: 1.5em;
+	color: ivory;
+	transition: .7s;
+}
+.wrapper-nav-item{
+	justify-self: end;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 2.5em;
+	width: 2.5em;
+}
+.wrapper-nav-item:hover{
+	cursor: pointer;
+}
+.wrapper-nav-item:hover .slider-nav-item{
+	background-color: ivory;
+}
+.slider-nav-item{
+	display: block;
 	position: relative;
-   }
-   p{
-	   font-size: 1.5em;
-	   color: ivory;
-   }
-   .sl-nav{
-		position: relative;
-		display: -webkit-flex;
-		display: -moz-flex;
-		display: -ms-flex;
-		display: -o-flex;
-	}
+	height: 1.2em;
+	width: 1.2em;
+	background-color: rgb(65, 65, 251);
+	border-radius: 50%;
+	margin: 0.2em;
+	transition: all .5s ease;
+	cursor: pointer;
+}
+#s0:checked ~ .img .s1{
+	margin-left: 0;
+}
+#s1:checked ~ .img .s1{
+	margin-left: -25%;
+}
+#s2:checked ~ .img .s1{
+	margin-left: -50%;
+}
+#s3:checked ~ .img .s1{
+	margin-left: -75%;
+}
 
-   .sl-nav .slider-nav-item{
-		height: 1.5em;
-		width: 1.5em;
-		background-color: rgb(65, 65, 251);
-		border-radius: 50%;
-		margin: 0.2em;
-		cursor: pointer;
-		-webkit-transition: all .5s ease;
-		-o-transition: all .5s ease;
-		transition: all .5s ease;
-   }
-   .sl-nav .slider-nav-item:hover{
-		background-color: ivory;
-	}
+#s0:checked ~ .wrapper-nav-item .l0,
+#s1:checked ~ .wrapper-nav-item .l1,
+#s2:checked ~ .wrapper-nav-item .l2,
+#s3:checked ~ .wrapper-nav-item .l3{
+	background-color: black;
+	border: 0.2em solid rgb(65, 65, 251);
+}
+#s0:checked ~ .wrapper-nav-item:hover .l0,
+#s1:checked ~ .wrapper-nav-item:hover .l1,
+#s2:checked ~ .wrapper-nav-item:hover .l2,
+#s3:checked ~ .wrapper-nav-item:hover .l3{
+	background-color: black;
+	border: 0.2em solid ivory;
+}
 
-   #s1:checked ~ .s1{
-	   margin-left: 0;
-   }
-   #s2:checked ~ .s1{
-		margin-left: -25%;
+#s0:checked ~ .text .t1{
+	margin-top: 0;
+}
+#s1:checked ~ .text .t1{
+	margin-top: -1.3em;
+}
+#s2:checked ~ .text .t1{
+	margin-top: -2.4em;
+}
+#s3:checked ~ .text .t1{
+	margin-top: -3.4em;
+}
+@media (max-width: 767px) {
+	.wrapper{
+		margin: 15vh auto;
+		grid-template-columns: repeat(16, 1fr);
+		grid-template-rows: repeat(6, 1fr);
+		row-gap:  1vh;
+	} 
+	.text{
+		grid-row: 5 / 6;
+		grid-column: 1 / 17;
 	}
-	#s3:checked ~ .s1{
-		margin-left: -50%;
+	.first-label {
+		grid-column: 7 / 8;
 	}
-	#s4:checked ~ .s1{
-		margin-left: -75%;
+	.wrapper-nav-item{
+		justify-self: center;
+		align-self: center;
 	}
+	.slider-nav-item{
+		height: 1em;
+		width: 1em;
+	}
+}
